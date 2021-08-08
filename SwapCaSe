@@ -1,0 +1,6 @@
+def swap_vowel_case(st): 
+    set = 'aeouiAEOUI'
+    for c in st: 
+        if c in set: 
+            st = st.replace(char, char.swapcase())
+    return st
