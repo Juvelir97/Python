@@ -1,0 +1,23 @@
+#sum of first elements of nested list - sum of second elements of the list
+
+
+
+def number(bus_stops):
+    p = []
+    for list in bus_stops:
+        for num in list:
+            p.append(num)
+    
+    i = p[::2]
+    o = p[1::2]
+    
+    si = sum(i)
+    so = sum(o)
+    
+    return (si-so)
+    
+    
+ test.assert_equals(number([[10,0],[3,5],[5,8]]),5)
+test.assert_equals(number([[3,0],[9,1],[4,10],[12,2],[6,1],[7,10]]),17)
+test.assert_equals(number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]]),21)
+    
