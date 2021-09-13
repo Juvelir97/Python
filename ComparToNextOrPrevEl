@@ -1,0 +1,19 @@
+ver 1
+
+mylist = [1, 2, 2, 4, 2, 3]
+for i, j in enumerate(mylist[:-1]):
+    if j  == mylist[i+1]: 
+        mylist[i] = "foo" 
+        mylist[i+1] = "foo"
+print mylist
+
+
+ver 2
+iterable = 'AAABBBCCC'
+    result = []
+    prev = None
+    for char in iterable[0:]:
+        if char != prev:
+            result.append(char)
+            prev = char
+    return result
