@@ -1,0 +1,19 @@
+def title_case(title, minor_words=''):
+    nt = title.title()
+    st = nt.split(" ")
+    kt = st[0]
+    tw=minor_words.lower()
+    mw = tw.split(" ")
+    for i,e in enumerate(st):
+        for j in mw:
+            if str(e.lower()) == j:
+                st[i]=j
+        
+    st[0] = kt
+    return ' '.join(st)                
+    
+
+Test.assert_equals(title_case(''), '')
+Test.assert_equals(title_case('a clash of KINGS', 'a an the of'), 'A Clash of Kings')
+Test.assert_equals(title_case('THE WIND IN THE WILLOWS', 'The In'), 'The Wind in the Willows')
+Test.assert_equals(title_case('the quick brown fox'), 'The Quick Brown Fox')
