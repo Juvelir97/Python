@@ -1,0 +1,18 @@
+version#1
+A = []
+for i in range(999,0,-1):
+	n = 999
+	while n > 0:
+		c = i*n
+		c = str(c)
+		if c==c[::-1]:
+			A.append(int(c))
+			break
+		else:
+			n-=1
+print(max(A))
+
+
+version#2
+
+print(max([x*y for x in range(900,1000) for y in range(900,1000) if str(x*y) == str(x*y)[::-1]]))
