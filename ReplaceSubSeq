@@ -1,0 +1,51 @@
+def solution(args):
+    result = ""
+    i = 0
+    while i<len(args):
+        val = args[i]
+        while i+1<len(args) and args[i]+1==args[i+1]:
+            i+=1
+        if val == args[i]:
+            result += ",%s"%val
+        elif val+1 == args[i]:
+            result += ",%s,%s"%(val, args[i])
+        else:
+            result += ",%s-%s"%(val, args[i])
+        i+=1
+    return result.lstrip(",")
+
+==============================================================================================
+#Similar solution
+
+def solution(args):
+    ret = []
+    i = 0
+    while i < len(args):
+        j = i
+        while (j+1 < len(args) and args[j] + 1 == args[j+1]):
+            j += 1
+            
+        if j - i < 2:
+            ret.append(str(args[i]))
+            i += 1
+        else:
+            ret.append("{}-{}".format(args[i], args[j]))
+            i = j + 1
+    
+    return ",".join(ret)
+
+
+
+
+
+==================================================================================================
+#Another solution
+
+
+ def solution(args):
+    output = ''
+    for n in args:                                                                              # In comments: 'group' = any individual integer, pair, or range of 3+
+        if n == max(args): output += str(n)                                                     # At the end of the list, there's no extra punctuation
+        elif n+1 not in args or (n-1 not in args and n+2 not in args): output += str(n) + ','   # You get a comma at the end of a group, or in the middle of a pair
+        elif n-1 not in args: output += str(n) + '-'                                            # You get a dash if you're at the start of a group and didn't get a comma
+    return output
