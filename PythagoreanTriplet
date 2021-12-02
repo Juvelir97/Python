@@ -1,0 +1,23 @@
+def calca(m,n):
+    a = m**2 - n**2
+    return a
+
+def calcb(m,n):
+    b = 2*m*n
+    return b
+
+def calcc(m,n):
+    c = m**2 + n**2
+    return c
+
+for m in range(1,1000):
+    for n in range (1,1000):
+        if m>n:
+            a=calca(m,n)
+            b=calcb(m,n)
+            c=calcc(m,n)
+            pyth = a + b + c
+            if pyth==1000:
+                print(a,b,c)
+                prod=a*b*c
+                print(prod)
